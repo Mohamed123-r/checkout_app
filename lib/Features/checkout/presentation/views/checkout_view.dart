@@ -1,4 +1,4 @@
-import 'package:checkout_app/Features/checkout/presentation/views/widgets/checkout_view_item.dart';
+import 'package:checkout_app/Features/checkout/presentation/views/widgets/checkout_view_body.dart';
 import 'package:checkout_app/core/utils/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
