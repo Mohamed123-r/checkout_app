@@ -1,8 +1,6 @@
 import 'package:checkout_app/Features/checkout/presentation/views/widgets/checkout_view_body.dart';
-import 'package:checkout_app/core/utils/styles.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:checkout_app/core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CheckoutView extends StatelessWidget {
   const CheckoutView({super.key});
@@ -10,20 +8,13 @@ class CheckoutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          'My Cart',
-          style: Styles.style25,
-        ),
-        leading: Center(
-          child: SvgPicture.asset(
-            'assets/images/Arrow.svg',
-          ),
-        ),
+      appBar: buildAppBar(
+        title: 'My Cart',
       ),
       body: const CheckoutViewBody(),
     );
   }
+
+
 }
 
