@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../think_you_view.dart';
 import 'custom_button.dart';
 import 'custom_credit_card.dart';
 import 'payment_list_view_item.dart';
@@ -36,6 +37,12 @@ class _PaymentDetailsBodyState extends State<PaymentDetailsBody> {
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ThinkYouView(),
+                      ),
+                    );
                   }
                 },
                 text: 'Pay'),
