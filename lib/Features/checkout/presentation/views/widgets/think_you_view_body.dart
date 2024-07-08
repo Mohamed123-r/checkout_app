@@ -17,7 +17,7 @@ class ThinkYouViewBody extends StatelessWidget {
           top: -50,
           child: CircleAvatar(
             radius: 50,
-            backgroundColor: Color(0xffD9D9D9),
+            backgroundColor: Color(0xffEDEDED),
             child: CircleAvatar(
               radius: 40,
               backgroundColor: Color(0xff34A853),
