@@ -66,11 +66,11 @@ class ThankYouCard extends StatelessWidget {
               height: 30,
             ),
             const CardInfoCart(),
-            Spacer(),
+            const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(
+                const Icon(
                   FontAwesomeIcons.barcode,
                   weight: 150,
                   size: 70,
@@ -87,7 +87,7 @@ class ThankYouCard extends StatelessWidget {
                     child: Text(
                       "PAID",
                       style: Styles.style24.copyWith(
-                        color: Color(0xff34A853)
+                        color: const Color(0xff34A853)
                       ),
                     ),
                   ),
