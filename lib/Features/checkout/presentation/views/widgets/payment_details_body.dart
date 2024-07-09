@@ -21,11 +21,11 @@ class _PaymentDetailsBodyState extends State<PaymentDetailsBody> {
       padding: const EdgeInsets.all(16.0),
       child: CustomScrollView(slivers: [
         const SliverToBoxAdapter(child: PaymentListViewItem()),
-        SliverToBoxAdapter(
-            child: CustomCreditCard(
-          formKey: formKey,
-          autovalidateMode: autovalidateMode,
-        )),
+        // SliverToBoxAdapter(
+        //     child: CustomCreditCard(
+        //   formKey: formKey,
+        //   autovalidateMode: autovalidateMode,
+        // )),
         SliverFillRemaining(
           hasScrollBody: false,
           child: Align(
