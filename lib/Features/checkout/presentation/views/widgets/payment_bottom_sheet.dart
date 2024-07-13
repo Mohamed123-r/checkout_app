@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'custom_button.dart';
+import 'custom_button_bloc_consumer.dart';
 import 'payment_list_view_item.dart';
 
 class PaymentBottomSheet extends StatelessWidget {
@@ -7,21 +7,21 @@ class PaymentBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 24.0),
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 24.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(
+          SizedBox(
             height: 12,
           ),
-          const PaymentListViewItem(),
-          const SizedBox(
+          PaymentListViewItem(),
+          SizedBox(
             height: 25,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: CustomButton(onPressed: () {}, text: 'Continue'),
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: CustomButtonBlocConsumer(),
           )
         ],
       ),

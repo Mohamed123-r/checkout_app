@@ -1,5 +1,8 @@
 import 'package:checkout_app/Features/checkout/presentation/views/widgets/total_price.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../data/repos/checkout_repo_imbl.dart';
+import '../../manage/payment_cubit.dart';
 import 'custom_button.dart';
 import 'payment_bottom_sheet.dart';
 import 'section_of_details_order.dart';
@@ -44,7 +47,11 @@ class CheckoutViewBody extends StatelessWidget {
               showModalBottomSheet(
                   context: context,
                   builder: (context) {
-                    return const PaymentBottomSheet();
+                    return BlocProvider(
+                      create: (context) =>
+                          PaymentCubit(CheckoutRepoImbl()),
+                      child: const PaymentBottomSheet(),
+                    );
                   });
             },
             text: 'Complete Payment',
