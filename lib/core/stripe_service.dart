@@ -17,28 +17,35 @@ class StripeService {
     var paymentIntentModel = PaymentIntentModel.fromJson(response.data);
     return paymentIntentModel;
   }
-}
 
-Future initPaymentServer({required String paymentIntelClientSecret}) async {
-  Stripe.instance.initPaymentSheet(
-    paymentSheetParameters: SetupPaymentSheetParameters(
-      merchantDisplayName: 'Mohamed',
-      paymentIntentClientSecret: paymentIntelClientSecret,
-    ),
-  );
-}
+  Future initPaymentServer({required String paymentIntelClientSecret}) async {
+    Stripe.instance.initPaymentSheet(
+      paymentSheetParameters: SetupPaymentSheetParameters(
+        merchantDisplayName: 'Mohamed',
+        paymentIntentClientSecret: paymentIntelClientSecret,
+      ),
+    );
+  }
 
-Future displayPaymentSheet(
-    {required String paymentIntelClientSecret}) async {
-  try {
-    await Stripe.instance.presentPaymentSheet();
-  } on Exception catch (e) {
-    if (e is StripeException) {
-      print("Error from Stripe: ${e.error.localizedMessage}");
-    } else {
-      print("Unforeseen error: ${e}");
+  Future displayPaymentSheet() async {
+    try {
+      await Stripe.instance.presentPaymentSheet();
+    } on Exception catch (e) {
+      if (e is StripeException) {
+        print("Error from Stripe: ${e.error.localizedMessage}");
+      } else {
+        print("Unforeseen error: ${e}");
+      }
+    } catch (e) {
+      print("Exception: $e");
     }
-  } catch (e) {
-    print("Exception: $e");
+  }
+
+  makePayment(
+      {required PaymentIntentInputModel paymentIntentInputModel}) async {
+    var paymentIntentModel = await createPaymentInt(paymentIntentInputModel);
+    await initPaymentServer(
+        paymentIntelClientSecret: paymentIntentModel.clientSecret!);
+    await displayPaymentSheet();
   }
 }
